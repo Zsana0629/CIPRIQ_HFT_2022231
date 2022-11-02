@@ -2,7 +2,7 @@
 
 namespace CIPRIQ_HFT_2022231.Repository
 {
-    public class Class1
+    public class PhoneDbContext
     {
     }
 }
