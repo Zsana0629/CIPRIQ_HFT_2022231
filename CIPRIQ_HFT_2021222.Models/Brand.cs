@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Models
 {
-    class Brand
+    public class Brand
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Models
 {
-    class Phone
+    public class Phone
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

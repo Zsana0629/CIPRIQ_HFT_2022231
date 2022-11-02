@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Models
 {
-    class Country
+   public  class Country
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
