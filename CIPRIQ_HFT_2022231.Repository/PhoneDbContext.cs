@@ -16,8 +16,9 @@ namespace CIPRIQ_HFT_2022231.Repository
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring(optionsBuilder);
-            throw new NotImplementedException();
+            optionsBuilder.UseInMemoryDatabase("PhoneDb");
+            base.OnConfiguring(optionsBuilder);
+            //throw new NotImplementedException();
         }
 
 
