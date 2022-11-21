@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using CIPRIQ_HFT_2022231.Models;
+using System.Collections.Generic;
 
 namespace CIPRIQ_HFT_2022231.Repository
 {
@@ -25,28 +26,37 @@ namespace CIPRIQ_HFT_2022231.Repository
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Phone>(entity =>
-            {
-                entity
-                .HasOne(phone => phone.brand)
-                .WithMany(brand => brand.Phones)
-                .HasForeignKey(phone => phone.BrandID)
-                .OnDelete(DeleteBehavior.Restrict);
-            });
+            List<Brand> brandList = new List<Brand>();
+            List<Brand> brandList1 = new List<Brand>();
+            List<Brand> brandList2 = new List<Brand>();
+            
+            modelBuilder.Entity<Phone>().HasOne(t => t.brand).WithMany(t => t.Phones).HasForeignKey(t => t.BrandID);
+            modelBuilder.Entity<Brand>().HasOne(t => t.country).WithMany(t => t.Brands).HasForeignKey(t => t.CountryID);
 
-            Brand Samsung = new Brand() { Id = 1, name = "Samsung" };
-            Brand Iphone = new Brand() { Id = 2, name = "Iphone" };
-            Brand Huawei = new Brand() { Id = 3, name = "Huawei" };
+            Brand Samsung = new Brand() { Id = 1, name = "Samsung"};
+            Brand Apple = new Brand() { Id = 2, name = "Apple"};
+            Brand Huawei = new Brand() { Id = 3, name = "Huawei"};
 
             Phone samsung1 = new Phone() { ID = 1, BrandID = Samsung.Id, PriceCategory = "Hight", name = "Samsung S22"};
             Phone samsung2 = new Phone() { ID = 2, BrandID = Samsung.Id, PriceCategory = "Medium", name = "Samsung A53"};
-            Phone Iphone1 = new Phone() { ID = 3, BrandID = Iphone.Id, PriceCategory = "Medium", name = "Iphone 11"};
-            Phone Iphone2 = new Phone() { ID = 4, BrandID = Iphone.Id, PriceCategory = "Low", name = "Iphone 14"};
+            Phone Iphone1 = new Phone() { ID = 3, BrandID = Apple.Id, PriceCategory = "Medium", name = "Iphone 11"};
+            Phone Iphone2 = new Phone() { ID = 4, BrandID = Apple.Id, PriceCategory = "Low", name = "Iphone 14"};
             Phone Huawei1 = new Phone() { ID = 5, BrandID = Huawei.Id, PriceCategory = "Low" , name = "Huawei P8"};
             Phone Huawei2 = new Phone() { ID = 6, BrandID = Huawei.Id, PriceCategory = "Hight", name = "Huawei P50"};
 
-            modelBuilder.Entity<Brand>().HasData(Samsung, Iphone, Huawei);
+            brandList.Add(Samsung);
+            brandList1.Add(Apple);
+            brandList2.Add(Huawei);
+
+
+            Country Korea = new Country() { ID =1, name="Korea", Brands = brandList};
+            Country USA = new Country() { ID = 2, name = "USA", Brands = brandList1 };
+            Country China = new Country() { ID = 3, name = "China", Brands = brandList2};
+
+
+            modelBuilder.Entity<Brand>().HasData(Samsung, Apple, Huawei);
             modelBuilder.Entity<Phone>().HasData(samsung1, samsung2, Iphone1, Iphone2, Huawei1, Huawei2);
+            modelBuilder.Entity<Country>().HasData(Korea,USA,China);
         }
         
     }

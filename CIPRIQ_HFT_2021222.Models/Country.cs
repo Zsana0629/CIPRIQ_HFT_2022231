@@ -16,13 +16,15 @@ namespace CIPRIQ_HFT_2022231.Models
 
         public int ID { get; set; }
         public string name { get; set; }
+        
 
         [NotMapped]
         public virtual ICollection<Brand> Brands { get; set; }
 
+
         public Country()
         {
-            Brands = new HashSet<Brand>();
+            Brands = new List<Brand>();
         }
 
         public override string ToString()

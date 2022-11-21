@@ -17,10 +17,14 @@ namespace CIPRIQ_HFT_2022231.Models
         public string name { get; set; }
         [NotMapped]
         public virtual ICollection<Phone> Phones { get; set; }
+        [NotMapped]
+        public virtual Country country { get; set; }
+
+        public int CountryID { get; set; }
 
         public Brand()
         {
-            Phones = new HashSet<Phone>();
+            Phones = new List<Phone>();
         }
 
         public override string ToString()
