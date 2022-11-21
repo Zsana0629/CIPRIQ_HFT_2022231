@@ -7,9 +7,9 @@ namespace CIPRIQ_HFT_2022231.Repository
 {
     public class PhoneDbContext : DbContext
     {
-        public virtual DbSet<Country> country { get; set; }
-        public virtual DbSet<Brand> brand { get; set; }
-        public virtual DbSet<Phone> phone { get; set; }
+        public virtual DbSet<Country> countries { get; set; }
+        public virtual DbSet<Brand> brands { get; set; }
+        public virtual DbSet<Phone> phones { get; set; }
 
         public PhoneDbContext()
         {
