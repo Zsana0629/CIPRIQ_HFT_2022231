@@ -38,6 +38,11 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
         {
             this.repo.Update(item);
         }
+        public Country PhoneFinder (string input)
+        {
+            //return repo.ReadAll().Select(b => b.Brands.Select(b => b.Phones.Where(p => p.name == input)));
+            return null;
+        }
     }
 }
 

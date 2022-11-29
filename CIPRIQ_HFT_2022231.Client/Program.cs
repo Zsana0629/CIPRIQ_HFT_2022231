@@ -1,4 +1,5 @@
 ﻿using CIPRIQ_HFT_2022231.Models;
+using ConsoleTools;
 using System;
 
 namespace CIPRIQ_HFT_2022231.Client
@@ -9,13 +10,13 @@ namespace CIPRIQ_HFT_2022231.Client
         {
             RestService rest = new RestService("http://localhost:33531/", typeof(Phone).Name);
             CrudService crud = new CrudService(rest);
-            NonCrudService nonCrud = new NonCrudService(rest);
+           // NonCrudService nonCrud = new NonCrudService(rest);
 
-            var carSubMenu = new ConsoleMenu(args, level: 1)
-                .Add("List", () => crud.List<Car>())
-                .Add("Create", () => crud.Create<Car>())
-                .Add("Delete", () => crud.Delete<Car>())
-                .Add("Update", () => crud.Update<Car>())
+            var PhoneSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("List", () => crud.List<Phone>())
+                .Add("Create", () => crud.Create<Phone>())
+                .Add("Delete", () => crud.Delete<Phone>())
+                .Add("Update", () => crud.Update<Phone>())
                 .Add("Exit", ConsoleMenu.Close);
 
             var brandSubMenu = new ConsoleMenu(args, level: 1)
@@ -25,16 +26,19 @@ namespace CIPRIQ_HFT_2022231.Client
                  .Add("Update", () => crud.Update<Brand>())
                  .Add("Exit", ConsoleMenu.Close);
 
-            var statsSubMenu = new ConsoleMenu(args, level: 1)
-                .Add("Average car price", () => nonCrud.AvgCarPrice())
-                .Add("Brand statistics", () => nonCrud.ReadBrandStats())
-                .Add("Cars by Price range", () => nonCrud.GetCarsByPriceRange())
-                .Add("Exit", ConsoleMenu.Close);
+            var countrySubMenu = new ConsoleMenu(args, level: 1)
+                 .Add("List", () => crud.List<Country>())
+                 .Add("Create", () => crud.Create<Country>())
+                 .Add("Delete", () => crud.Delete<Country>())
+                 .Add("Update", () => crud.Update<Country>())
+                 .Add("Exit", ConsoleMenu.Close);
+
 
             var menu = new ConsoleMenu(args, level: 0)
-                .Add("Cars", () => carSubMenu.Show())
+                .Add("Phones", () => PhoneSubMenu.Show())
                 .Add("Brands", () => brandSubMenu.Show())
-                .Add("Non-CRUD", () => statsSubMenu.Show())
+                .Add("Countries", () => countrySubMenu.Show())
+                //.Add("Non-CRUD", () => statsSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();

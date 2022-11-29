@@ -18,6 +18,7 @@ namespace CIPRIQ_HFT_2022231.Models
         public string name { get; set; }
 
         public string PriceCategory { get; set; }
+        public int Price { get; set; }
 
         public int Storage { get; set; }
 

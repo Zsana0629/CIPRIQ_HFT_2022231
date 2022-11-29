@@ -39,12 +39,12 @@ namespace CIPRIQ_HFT_2022231.Repository
             Brand Apple = new Brand() { Id = 2, name = "Apple",CountryID=USA.ID};
             Brand Huawei = new Brand() { Id = 3, name = "Huawei",CountryID = China.ID};
 
-            Phone samsung1 = new Phone() { ID = 1, BrandID = Samsung.Id, PriceCategory = "Hight", name = "Samsung S22"};
-            Phone samsung2 = new Phone() { ID = 2, BrandID = Samsung.Id, PriceCategory = "Medium", name = "Samsung A53"};
-            Phone Iphone1 = new Phone() { ID = 3, BrandID = Apple.Id, PriceCategory = "Medium", name = "Iphone 11"};
-            Phone Iphone2 = new Phone() { ID = 4, BrandID = Apple.Id, PriceCategory = "Low", name = "Iphone 14"};
-            Phone Huawei1 = new Phone() { ID = 5, BrandID = Huawei.Id, PriceCategory = "Low" , name = "Huawei P8"};
-            Phone Huawei2 = new Phone() { ID = 6, BrandID = Huawei.Id, PriceCategory = "Hight", name = "Huawei P50"};
+            Phone samsung1 = new Phone() { ID = 1, BrandID = Samsung.Id, PriceCategory = "Hight", Price=400000, name = "Samsung S22"};
+            Phone samsung2 = new Phone() { ID = 2, BrandID = Samsung.Id, PriceCategory = "Medium",Price = 170000, name = "Samsung A53"};
+            Phone Iphone1 = new Phone() { ID = 3, BrandID = Apple.Id, PriceCategory = "Medium", Price = 250000, name = "Iphone 11"};
+            Phone Iphone2 = new Phone() { ID = 4, BrandID = Apple.Id, PriceCategory = "Low", Price = 700000, name = "Iphone 14"};
+            Phone Huawei1 = new Phone() { ID = 5, BrandID = Huawei.Id, PriceCategory = "Low", Price = 40000, name = "Huawei P8"};
+            Phone Huawei2 = new Phone() { ID = 6, BrandID = Huawei.Id, PriceCategory = "Hight", Price = 340000, name = "Huawei P50"};
 
             modelBuilder.Entity<Brand>().HasData(Samsung, Apple, Huawei);
             modelBuilder.Entity<Phone>().HasData(samsung1, samsung2, Iphone1, Iphone2, Huawei1, Huawei2);
