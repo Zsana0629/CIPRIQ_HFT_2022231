@@ -5,6 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="ConsoleMenu-simple" Version="2.4.2" />
+		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.14" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.14" />
@@ -15,7 +17,10 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\CIPRIQ_HFT_2021222.Logic\CIPRIQ_HFT_2022231.Logic.csproj" />
 	  <ProjectReference Include="..\CIPRIQ_HFT_2021222.Models\CIPRIQ_HFT_2022231.Models.csproj" />
+	  <ProjectReference Include="..\CIPRIQ_HFT_2022231.Repository\CIPRIQ_HFT_2022231.Repository.csproj" />
+	  <ProjectReference Include="..\CIPRIQ_HFT_2022231.Test\CIPRIQ_HFT_2022231.Test.csproj" />
 	</ItemGroup>
 
 </Project>
