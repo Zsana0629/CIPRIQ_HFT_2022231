@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Repository
 {
-    class Brand_Repository : Repository<Brand>
+  public  class CountryRepository : Repository<Country>
     {
-        public Brand_Repository(PhoneDbContext ptx) : base(ptx)
+        public CountryRepository(PhoneDbContext ptx) : base(ptx)
         {
         }
-        public override Brand Read(int id)
+        public override Country Read(int id)
         {
-            return ptx.brands.FirstOrDefault(b => b.CountryID == id);
+            return ptx.countries.FirstOrDefault(b => b.ID == id);
         }
-        public override void Update(Brand item)
+        public override void Update(Country item)
         {
-            var old = Read(item.CountryID);
+            var old = Read(item.ID);
             foreach (var prop in item.GetType().GetProperties())
             {
                 prop.SetValue(old, prop.GetValue(item));

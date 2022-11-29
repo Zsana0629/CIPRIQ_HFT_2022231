@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Repository
 {
-    class Country_Repository : Repository<Country>
+   public class PhoneRepository : Repository<Phone>
     {
-        public Country_Repository(PhoneDbContext ptx) : base(ptx)
+        public PhoneRepository(PhoneDbContext ptx) : base(ptx)
         {
         }
-        public override Country Read(int id)
+        public override Phone Read(int id)
         {
-            return ptx.countries.FirstOrDefault(b => b.ID == id);
+            return ptx.phones.FirstOrDefault(b => b.ID == id);
         }
-        public override void Update(Country item)
+        public override void Update(Phone item)
         {
             var old = Read(item.ID);
             foreach (var prop in item.GetType().GetProperties())
