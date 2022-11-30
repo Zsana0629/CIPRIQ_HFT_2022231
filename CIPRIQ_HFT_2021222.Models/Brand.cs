@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Models
@@ -18,6 +19,7 @@ namespace CIPRIQ_HFT_2022231.Models
         [NotMapped]
         public virtual ICollection<Phone> Phones { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual Country country { get; set; }
 
         public int CountryID { get; set; }

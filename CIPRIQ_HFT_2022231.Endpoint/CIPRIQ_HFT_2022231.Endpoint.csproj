@@ -22,5 +22,8 @@
 	  <ProjectReference Include="..\CIPRIQ_HFT_2021222.Models\CIPRIQ_HFT_2022231.Models.csproj" />
 	  <ProjectReference Include="..\CIPRIQ_HFT_2022231.Repository\CIPRIQ_HFT_2022231.Repository.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controllers\" />
+	</ItemGroup>
 
 </Project>

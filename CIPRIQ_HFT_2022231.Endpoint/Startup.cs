@@ -19,30 +19,35 @@ namespace CIPRIQ_HFT_2022231.Endpoint
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        /*public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+        }*/
+        public Startup()
+        {
 
+        }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<PhoneDbContext>();
-
             services.AddTransient<IRepository<Phone>, PhoneRepository>();
             services.AddTransient<IRepository<Brand>, BrandRepository>();
             services.AddTransient<IRepository<Country>, CountryRepository>();
+
 
             services.AddTransient<IPhoneLogic, PhoneLogic>();
             services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<ICountryLogic, CountryLogic>();
 
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PhoneDb.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NBADB.Endpoint", Version = "v1" });
             });
         }
 
@@ -53,7 +58,7 @@ namespace CIPRIQ_HFT_2022231.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarDB.Endpoint v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NBADB.Endpoint v1"));
             }
 
             app.UseExceptionHandler(c => c.Run(async context =>

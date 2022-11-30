@@ -19,6 +19,7 @@ namespace CIPRIQ_HFT_2022231.Models
         
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Brand> Brands { get; set; }
 
 
