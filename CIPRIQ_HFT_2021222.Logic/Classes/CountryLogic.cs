@@ -40,8 +40,12 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
         }
         public Country PhoneFinder (string input)
         {
-            //return repo.ReadAll().Select(b => b.Brands.Select(b => b.Phones.Where(p => p.name == input)));
-            return null;
+            var Country = from C in repo.ReadAll()
+                          from B in C.Brands
+                          from P in B.Phones
+                          where P.name == input
+                          select C;
+            return Country.First();
         }
     }
 }

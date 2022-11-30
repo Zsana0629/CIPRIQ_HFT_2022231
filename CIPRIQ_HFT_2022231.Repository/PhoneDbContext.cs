@@ -39,12 +39,12 @@ namespace CIPRIQ_HFT_2022231.Repository
             Brand Apple = new Brand() { Id = 2, name = "Apple",CountryID=USA.ID};
             Brand Huawei = new Brand() { Id = 3, name = "Huawei",CountryID = China.ID};
 
-            Phone samsung1 = new Phone() { ID = 1, BrandID = Samsung.Id, PriceCategory = "Hight", Price=400000, name = "Samsung S22", Storage=13, RAM=5};
-            Phone samsung2 = new Phone() { ID = 2, BrandID = Samsung.Id, PriceCategory = "Medium",Price = 170000, name = "Samsung A53", Storage = 9, RAM = 8 };
-            Phone Iphone1 = new Phone() { ID = 3, BrandID = Apple.Id, PriceCategory = "Medium", Price = 250000, name = "Iphone 11", Storage = 10, RAM = 8};
-            Phone Iphone2 = new Phone() { ID = 4, BrandID = Apple.Id, PriceCategory = "Low", Price = 700000, name = "Iphone 14", Storage = 3, RAM = 3};
-            Phone Huawei1 = new Phone() { ID = 5, BrandID = Huawei.Id, PriceCategory = "Low", Price = 40000, name = "Huawei P8", Storage = 1, RAM = 3 };
-            Phone Huawei2 = new Phone() { ID = 6, BrandID = Huawei.Id, PriceCategory = "Hight", Price = 340000, name = "Huawei P50",Storage = 12, RAM = 10 };
+            Phone samsung1 = new Phone() { ID = 1, BrandID = Samsung.Id, PriceCategory = "Hight", Price=400000, name = "Samsung S22", Storage=256, RAM=8};
+            Phone samsung2 = new Phone() { ID = 2, BrandID = Samsung.Id, PriceCategory = "Medium",Price = 170000, name = "Samsung A53", Storage = 256, RAM = 6 };
+            Phone Iphone1 = new Phone() { ID = 3, BrandID = Apple.Id, PriceCategory = "Medium", Price = 250000, name = "Iphone 11", Storage = 64, RAM = 4};
+            Phone Iphone2 = new Phone() { ID = 4, BrandID = Apple.Id, PriceCategory = "Low", Price = 700000, name = "Iphone 14", Storage = 128, RAM = 4};
+            Phone Huawei1 = new Phone() { ID = 5, BrandID = Huawei.Id, PriceCategory = "Low", Price = 40000, name = "Huawei P8", Storage = 16, RAM = 3};
+            Phone Huawei2 = new Phone() { ID = 6, BrandID = Huawei.Id, PriceCategory = "Hight", Price = 340000, name = "Huawei P50",Storage = 256, RAM = 8 };
 
             modelBuilder.Entity<Brand>().HasData(Samsung, Apple, Huawei);
             modelBuilder.Entity<Phone>().HasData(samsung1, samsung2, Iphone1, Iphone2, Huawei1, Huawei2);
