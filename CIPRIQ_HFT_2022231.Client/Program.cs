@@ -10,7 +10,7 @@ namespace CIPRIQ_HFT_2022231.Client
         {
             RestService rest = new RestService("http://localhost:33531/", typeof(Phone).Name);
             CrudService crud = new CrudService(rest);
-           // NonCrudService nonCrud = new NonCrudService(rest);
+            NonCrudService nonCrud = new NonCrudService(rest);
 
             var PhoneSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => crud.List<Phone>())
@@ -38,7 +38,7 @@ namespace CIPRIQ_HFT_2022231.Client
                 .Add("Phones", () => PhoneSubMenu.Show())
                 .Add("Brands", () => brandSubMenu.Show())
                 .Add("Countries", () => countrySubMenu.Show())
-                //.Add("Non-CRUD", () => statsSubMenu.Show())
+                .Add("Non-CRUD", () => statsSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();
