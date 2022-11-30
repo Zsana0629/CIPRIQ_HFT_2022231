@@ -17,6 +17,7 @@ namespace CIPRIQ_HFT_2022231.Models
         public int Id {get; set;}
         public string name { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Phone> Phones { get; set; }
         [NotMapped]
         [JsonIgnore]

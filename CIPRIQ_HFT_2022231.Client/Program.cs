@@ -8,7 +8,7 @@ namespace CIPRIQ_HFT_2022231.Client
     {
         static void Main(string[] args)
         {
-            RestService rest = new RestService("http://localhost:33531/", typeof(Phone).Name);
+            RestService rest = new RestService("http://localhost:35240/", "Phone");
             CrudService crud = new CrudService(rest);
             NonCrudService nonCrud = new NonCrudService(rest);
 
@@ -32,7 +32,13 @@ namespace CIPRIQ_HFT_2022231.Client
                  .Add("Delete", () => crud.Delete<Country>())
                  .Add("Update", () => crud.Update<Country>())
                  .Add("Exit", ConsoleMenu.Close);
-
+            var statsSubMenu = new ConsoleMenu(args, level: 1)
+                 .Add("PhoneFinder", () => nonCrud.PhoneFinder())
+                 .Add("Phones in Country", () => nonCrud.PhonesInCountry())
+                 .Add("Country Phone Statistics", () => nonCrud.CountryPhoneStats())
+                 .Add("Phone finder by ram", () => nonCrud.CountriesPhoneRam())
+                 .Add("Contry Phones Average Storage", () => nonCrud.CountryPhonesAvgStorage())
+                 .Add("Exit", ConsoleMenu.Close);
 
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Phones", () => PhoneSubMenu.Show())

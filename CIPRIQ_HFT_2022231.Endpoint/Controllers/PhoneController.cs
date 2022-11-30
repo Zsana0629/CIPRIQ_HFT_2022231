@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PhoneController : ControllerBase
     {

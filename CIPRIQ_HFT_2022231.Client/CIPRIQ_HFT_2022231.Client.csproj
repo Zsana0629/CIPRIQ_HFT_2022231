@@ -20,7 +20,6 @@
 	  <ProjectReference Include="..\CIPRIQ_HFT_2021222.Logic\CIPRIQ_HFT_2022231.Logic.csproj" />
 	  <ProjectReference Include="..\CIPRIQ_HFT_2021222.Models\CIPRIQ_HFT_2022231.Models.csproj" />
 	  <ProjectReference Include="..\CIPRIQ_HFT_2022231.Repository\CIPRIQ_HFT_2022231.Repository.csproj" />
-	  <ProjectReference Include="..\CIPRIQ_HFT_2022231.Test\CIPRIQ_HFT_2022231.Test.csproj" />
 	</ItemGroup>
 
 </Project>
