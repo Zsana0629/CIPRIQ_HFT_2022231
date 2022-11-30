@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CIPRIQ_HFT_2022231.Models
 {
-    class CountryStat
+    public class CountryStat
     {
+        public string name { get; set; }
+        public int PhoneNumber { get; set; }
+        public int MostExpensive { get; set; }
+    
     }
 }

@@ -31,8 +31,7 @@ namespace CIPRIQ_HFT_2022231.Models
 
         public override string ToString()
         {
-            //return base.ToString();
-            throw new NotImplementedException();
+            return $"ID:{Id} Name:{name} ";
         }
     }
 }
