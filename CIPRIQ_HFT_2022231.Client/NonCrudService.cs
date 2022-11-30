@@ -42,14 +42,7 @@ namespace CIPRIQ_HFT_2022231.Client
             Console.ReadLine();
         }
 
-        public void CountryPhonesAvgStorage()
-        {
-            Console.WriteLine("Country:");
-            string input = Console.ReadLine();
-            var items = restService.Get<Country>($"Stat/CountriesPhonesAvgStorage?ram={input}");
-            foreach (var item in items) Console.WriteLine(item);
-            Console.ReadLine();
-        }
+      
 
         public void PhonesInCountry()
         {
@@ -59,6 +52,19 @@ namespace CIPRIQ_HFT_2022231.Client
             foreach (var item in items) Console.WriteLine(item);
             Console.ReadLine();
         }
+
+
+
+        public void CountryPhonesAvgStorage()
+        {
+            Console.WriteLine("Country:");
+            string input = Console.ReadLine();
+            var item = restService.GetSingle<double>($"Stat/CountryPhonesAvgStorage?name={input}");
+           Console.WriteLine(item);
+            Console.ReadLine();
+        }
+
+
     }
 }
 
