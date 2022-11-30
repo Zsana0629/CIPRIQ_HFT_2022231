@@ -19,14 +19,15 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
                 this.repo = repo;
             }
 
-            public double AVGPrice()
-            {
-                return this.repo.ReadAll().Average(c => c.BrandID);
-            }
+
 
             public void Create(Phone item)
             {
-                this.repo.Create(item);
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 1000) throw new FormatException();
+            if (item.RAM<= 0 || item.RAM is 0 || item.RAM > 100) throw new FormatException();
+            if (item.Storage <= 0 || item.Storage is 0 || item.Storage > 1000) throw new FormatException();
+            if (item.Price <= 0 || item.Price is 0 || item.Price > 0) throw new FormatException();
+            this.repo.Create(item);
             }
 
             public void Delete(int id)
@@ -46,7 +47,11 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
 
             public void Update(Phone item)
             {
-                this.repo.Update(item);
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 0) throw new FormatException();
+            if (item.RAM <= 0 || item.RAM is 0 || item.RAM > 100) throw new FormatException();
+            if (item.Storage <= 0 || item.Storage is 0 || item.Storage > 1000) throw new FormatException();
+            if (item.Price <= 0 || item.Price is 0 || item.Price > 0) throw new FormatException();
+            this.repo.Update(item);
             }
         
     }

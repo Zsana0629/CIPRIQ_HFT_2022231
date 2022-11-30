@@ -25,7 +25,7 @@ namespace Test
         Phone phone1;
 
         [SetUp]
-        public void Init()//másold át az egészet egy új Nunittesztbe
+        public void Init()
         {
             countryMock = new Mock<IRepository<Country>>();
             phoneMock = new Mock<IRepository<Phone>>();
@@ -90,6 +90,26 @@ namespace Test
                 countryLogic.Create(country);
             });
             countryMock.Verify(x => x.Create(country), Times.Never);
+        }
+        [Test]
+        public void PhoneCreateTest()
+        {
+            Phone phone = new Phone() { name = "" };
+            Assert.Throws<FormatException>(() =>
+            {
+                phoneLogic.Create(phone);
+            });
+            phoneMock.Verify(x => x.Create(phone), Times.Never);
+        }
+        [Test]
+        public void BrandCreateTest()
+        {
+            Brand brandnew = new Brand() { name = "" };
+            Assert.Throws<FormatException>(() =>
+            {
+                brandLogic.Create(brandnew);
+            });
+            brandMock.Verify(x => x.Create(brandnew), Times.Never);
         }
         [Test]
         public void CountryReadAllTest()

@@ -1,6 +1,7 @@
 ﻿using CIPRIQ_HFT_2022231.Logic.Interfaces;
 using CIPRIQ_HFT_2022231.Models;
 using CIPRIQ_HFT_2022231.Repository;
+using System;
 using System.Linq;
 
 namespace CIPRIQ_HFT_2022231.Logic.Classes
@@ -16,6 +17,12 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
 
         public void Create(Country item)
         {
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 1000) throw new FormatException();
+            
+            //if (item.name.Length <= 0 || item.name.Length > 1000)
+            //{
+            //    throw new FormatException();
+            //}
             this.repo.Create(item);
         }
 
@@ -36,6 +43,7 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
 
         public void Update(Country item)
         {
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 1000) throw new FormatException();
             this.repo.Update(item);
         }
         public Country PhoneFinder (string input)

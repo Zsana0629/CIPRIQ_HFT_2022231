@@ -16,11 +16,13 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
 
         public BrandLogic(IRepository<Brand> repo)
         {
+
             this.repo = repo;
         }
 
         public void Create(Brand item)
         {
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 1000) throw new FormatException();
             this.repo.Create(item);
         }
 
@@ -41,6 +43,7 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
 
         public void Update(Brand item)
         {
+            if (item.name.Length <= 0 || item.name is null || item.name.Length > 1000) throw new FormatException();
             this.repo.Update(item);
         }
         public Phone BrandsMostExpensive(string input)
