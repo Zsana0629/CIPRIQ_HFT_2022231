@@ -45,11 +45,10 @@ namespace CIPRIQ_HFT_2022231.Logic.Classes
         }
         public Phone BrandsMostExpensive(string input)
         {
-            return repo.ReadAll().Where(brand => brand.name == input).SelectMany(b=> b.Phones).OrderBy(p=>p.Price).FirstOrDefault();
+            return repo.ReadAll().Where(brand => brand.name == input).SelectMany(b => b.Phones).OrderBy(p => p.Price).FirstOrDefault();
         }
 
     }
-    
 
 }
 

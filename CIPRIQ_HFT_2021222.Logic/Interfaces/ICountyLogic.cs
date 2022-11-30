@@ -14,5 +14,15 @@ namespace CIPRIQ_HFT_2022231.Logic.Interfaces
         Country Read(int id);
         IQueryable<Country> ReadAll();
         void Update(Country item);
+
+        public Country PhoneFinder(string input);
+
+        public IQueryable<CountryStat> CountryPhoneStats();
+
+        public IQueryable CountriesPhoneRam(int ram);
+
+        public double CountryPhonesAvgStorage(string name);
+
+        public IQueryable<Phone> PhonesInCountry(string input);
     }
 }

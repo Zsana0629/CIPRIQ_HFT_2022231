@@ -12,7 +12,7 @@ namespace CIPRIQ_HFT_2022231.Endpoint.Controllers
     [ApiController]
     public class StatController : ControllerBase
     {
-   
+        
     }
 }
 
